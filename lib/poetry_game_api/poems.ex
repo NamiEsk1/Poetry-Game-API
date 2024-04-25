@@ -9,7 +9,7 @@ defmodule PoetryGameApi.Poems do
   alias PoetryGameApi.Poems.Poem
 
   @doc """
-  Returns the list of poems.
+  Returns the list of poems sorted by date and time submitted in descending order.
 
   ## Examples
 
@@ -18,7 +18,7 @@ defmodule PoetryGameApi.Poems do
 
   """
   def list_poems do
-    Repo.all(Poem)
+    Repo.all(Poem) |> Enum.sort_by(& &1.inserted_at, {:desc, NaiveDateTime})
   end
 
   @doc """
