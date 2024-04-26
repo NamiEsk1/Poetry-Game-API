@@ -8,6 +8,9 @@ defmodule PoetryGameApi.Poems do
 
   alias PoetryGameApi.Poems.Poem
 
+  @max_poem_count 12
+  def max_poem_count, do: @max_poem_count
+
   @doc """
   Returns the list of poems sorted by date and time submitted in descending order.
 

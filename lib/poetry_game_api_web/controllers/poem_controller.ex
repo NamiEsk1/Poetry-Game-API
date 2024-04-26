@@ -13,6 +13,13 @@ defmodule PoetryGameApiWeb.PoemController do
 
   def create(conn, %{"poem" => poem_params}) do
     with {:ok, %Poem{} = poem} <- Poems.create_poem(poem_params) do
+      list_of_poems = Poems.list_poems()
+
+      # We only store a certain amount of poems before deleting the oldest
+      if (length(list_of_poems) > Poems.max_poem_count()) do
+        Poems.delete_poem(List.last(list_of_poems))
+      end
+
       conn
       |> put_status(:created)
       |> render(:show, poem: poem)
