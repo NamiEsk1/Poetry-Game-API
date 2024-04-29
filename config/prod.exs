@@ -5,3 +5,4 @@ config :logger, level: :info
 
 # Runtime production configuration, including reading
 # of environment variables, is done on config/runtime.exs.
+config :poetry_game_api, origins: ["https://namiesk1.github.io"]

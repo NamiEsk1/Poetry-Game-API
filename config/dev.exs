@@ -2,7 +2,7 @@ import Config
 
 # Configure your database
 config :poetry_game_api, PoetryGameApi.Repo,
-  username: "PoetryUser",
+  username: "NamiEsk1",
   password: "EndOfTh3LineBATMAN!",
   hostname: "localhost",
   database: "poetry_game_api_dev",
@@ -61,3 +61,5 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :poetry_game_api, origins: ["http://localhost:8000"]

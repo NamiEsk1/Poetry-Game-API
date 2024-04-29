@@ -40,6 +40,11 @@ defmodule PoetryGameApiWeb.Endpoint do
     pass: ["*/*"],
     json_decoder: Phoenix.json_library()
 
+  plug Corsica,
+    origins: Application.compile_env(:poetry_game_api, :origins),
+    allow_headers: ["Accept", "Content-Type"],
+    allow_credentials: true
+
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
